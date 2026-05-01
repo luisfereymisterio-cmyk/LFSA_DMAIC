@@ -14,6 +14,8 @@ const allCertificateGrid = document.querySelector("#all-certificate-grid");
 const certificatePhaseGrids = document.querySelectorAll("[data-cert-phase]");
 const certificateSearch = document.querySelector("#certificate-search");
 const certificateFilters = document.querySelectorAll(".cert-filter");
+const portraitImage = document.querySelector(".portrait[data-alt-src]");
+const portraitButtons = document.querySelectorAll(".portrait-arrow");
 
 const focusCopy = {
   investigacion:
@@ -588,6 +590,22 @@ filters.forEach((filter) => {
         category !== "all" && paper.dataset.category !== category
       );
     });
+  });
+});
+
+portraitButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    if (!portraitImage) return;
+
+    const currentSrc = portraitImage.getAttribute("src");
+    const currentAlt = portraitImage.getAttribute("alt");
+    const nextSrc = portraitImage.dataset.altSrc;
+    const nextAlt = portraitImage.dataset.altAlt;
+
+    portraitImage.setAttribute("src", nextSrc);
+    portraitImage.setAttribute("alt", nextAlt);
+    portraitImage.dataset.altSrc = currentSrc;
+    portraitImage.dataset.altAlt = currentAlt;
   });
 });
 

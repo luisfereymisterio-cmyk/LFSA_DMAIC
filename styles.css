@@ -288,6 +288,40 @@ textarea {
   filter: saturate(1.06) contrast(1.04);
 }
 
+.portrait-arrow {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  color: #fff;
+  background: rgba(20, 61, 92, 0.88);
+  border: 1px solid rgba(255, 249, 239, 0.72);
+  border-radius: 50%;
+  box-shadow: 0 14px 28px rgba(42, 30, 21, 0.24);
+  cursor: pointer;
+  font-size: 32px;
+  line-height: 1;
+  transform: translateY(-50%);
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.portrait-arrow:hover {
+  background: var(--coral);
+  transform: translateY(-50%) scale(1.06);
+}
+
+.portrait-prev {
+  left: clamp(2px, 4vw, 34px);
+}
+
+.portrait-next {
+  right: clamp(2px, 4vw, 34px);
+}
+
 .portrait-head {
   width: 130px;
   height: 130px;
